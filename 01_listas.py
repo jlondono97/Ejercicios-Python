@@ -17,3 +17,13 @@ pro = promedio_lista(lista)
 print(pro)
 promedios = promediolista(lista)
 print(promedios)
+
+precios = [15000, 8500, 22000, 5000, 15000, 30000, 8500, 12000]
+
+def mostrar_precios(lista_precios):
+    maximo = max(lista_precios)
+    minimo = min(lista_precios)
+    return maximo, minimo
+
+p = mostrar_precios(precios)
+print(p)
