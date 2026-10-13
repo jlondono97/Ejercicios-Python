@@ -16,26 +16,30 @@ class Biblioteca:
         print(f"{libro} se agregó correctamente a la lista")
 
     def prestar(self, titulo):
+        encontrado = False 
         for prestar_libro in self.lista_libros:
             if prestar_libro.titulo == titulo:
+                encontrado = True
                 if prestar_libro.disponibilidad:
                     print(f"{titulo} prestado correctamente")
                     prestar_libro.disponibilidad = False
                 else:
                     print(f"{titulo} no se encuentra disponible")
-            else: 
-                print("No se encuentra el libro")
+        if encontrado == False:   
+            print(f"{titulo} No existe ese ese titulo")  
 
     def devolver(self, titulo):
+        encontrado = False 
         for prestar_libro in self.lista_libros:
             if prestar_libro.titulo == titulo:
+                encontrado = True
                 if prestar_libro.disponibilidad == False:
                     print(f"{titulo} devuelto")
                     prestar_libro.disponibilidad = True
                 else:
                     print(f"{titulo} no se encuentra disponible")
-            else: 
-                print("No se encuentra el libro")
+        if encontrado == False:   
+            print(f"{titulo} No existe ese ese titulo")      
 
     def mostrar_disponibles(self):
         for prestar_libro in self.lista_libros:
@@ -52,6 +56,7 @@ bib = Biblioteca()
 bib.agregar_libro(lib)
 bib.agregar_libro(lib2)
 bib.agregar_libro(lib3)
+bib.prestar("Coco")
 bib.prestar("Coco")
 bib.devolver("Coco")
 bib.mostrar_disponibles()
